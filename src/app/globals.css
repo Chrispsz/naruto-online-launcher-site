@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+
+  /* ── Brand palette ── */
+  --color-bg-primary: #070709;
+  --color-bg-secondary: #0E0E12;
+  --color-bg-card: #13131A;
+  --color-bg-card-hover: #1A1A24;
+  --color-gold: #C8A23D;
+  --color-gold-light: #E2C66D;
+  --color-gold-dim: #8B7230;
+  --color-gold-glow: rgba(200, 162, 61, 0.15);
+  --color-text-primary: #F0EDE6;
+  --color-text-secondary: #9A9AAB;
+  --color-text-muted: #5C5C6F;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-gold: rgba(200, 162, 61, 0.2);
+  --color-accent-red: #D94040;
+}
+
+:root {
+  --background: #070709;
+  --foreground: #F0EDE6;
+}
+
+@layer base {
+  * {
+    @apply border-border-subtle;
+  }
+  body {
+    @apply bg-bg-primary text-text-primary;
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(200, 162, 61, 0.2); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(200, 162, 61, 0.4); }
+
+/* ── Text gradient ── */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #E2C66D 0%, #C8A23D 40%, #E2C66D 60%, #8B7230 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(200, 162, 61, 0.3);
+  color: #F0EDE6;
+}
+
+/* ── Gold divider line ── */
+.gold-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 162, 61, 0.05) 15%,
+    rgba(200, 162, 61, 0.25) 40%,
+    rgba(226, 198, 109, 0.5) 50%,
+    rgba(200, 162, 61, 0.25) 60%,
+    rgba(200, 162, 61, 0.05) 85%,
+    transparent 100%
+  );
+}
+
+.gold-divider::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: #C8A23D;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(200, 162, 61, 0.5);
+}
+
+/* ── Feature card top accent ── */
+.card-gold-accent {
+  position: relative;
+}
+
+.card-gold-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 162, 61, 0.1) 20%,
+    rgba(200, 162, 61, 0.35) 50%,
+    rgba(200, 162, 61, 0.1) 80%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-gold-accent:hover::before {
+  opacity: 1;
+}
+
+/* ── Gold text shadow ── */
+.text-shadow-gold {
+  text-shadow: 0 0 40px rgba(200, 162, 61, 0.1);
+}
+
+/* ── Keyboard key ── */
+kbd.gold-key {
+  border-color: rgba(200, 162, 61, 0.25);
+  box-shadow: 0 0 6px -2px rgba(200, 162, 61, 0.1), inset 0 1px 0 rgba(200, 162, 61, 0.08);
+}

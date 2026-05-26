@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build
+.next/
+out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Dev environment artifacts
+.zscripts/
+skills/
+mini-services/
+examples/
+download/
+Caddyfile
+dev.log
+db/
+
+# Lock files (use bun.lock only)
+package-lock.json
+worklog.md
